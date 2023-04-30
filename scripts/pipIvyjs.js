@@ -52,64 +52,93 @@ function buildGame(objects) {
     let objectChoice = document.createElement("input");
     objectChoice.type = "radio";
     objectChoice.name = "objectsRadioButtons";
-    containerDiv.setAttribute('class', object.thing );
-    objectChoice.setAttribute('value', object.thing);
+    containerDiv.classList.add(object.thing );
+    objectChoice.setAttribute("id", object.thing);
+   //containerDiv.setAttribute('class', object.thing );
+   //objectChoice.setAttribute('value', object.thing);
     objectChoice.thing = object.thing;
     gameboard.appendChild(containerDiv);
     containerDiv.appendChild(objectChoice); 
     let label = document.createElement("label");
-    label.innerHTML = object.label;
-    gameboard.appendChild(label);
-  });
-}
+
+
+    if (object.thing) {
+      //containerDiv.setAttribute('class', object.thing );
+      //objectChoice.setAttribute('value', object.thing);
+      containerDiv.setAttribute('id', object.thing );
+      objectChoice.setAttribute('value', object.thing);
+      objectChoice.thing = object.thing;
+      label.innerHTML = object.label;
+      }
+      else {
+        console.log(object);
+        containerDiv.setAttribute('id', object);
+        objectChoice.setAttribute('value', object);
+        label.innerHTML = object;
+      }
+      gameboard.appendChild(containerDiv);
+      containerDiv.appendChild(objectChoice); 
+      gameboard.appendChild(label);
+    });
+  }
+
+
+
+
+
+    
+    //label.setAttribute("for", object.thing)
+    //label.innerHTML = object.label;
+
+   
+    //gameboard.appendChild(label);
+    //containerDiv.appendChild(label);
+    // Add event listener to each radio button
+    objectChoice.addEventListener('click', function() {
+      // Do something when the radio button is clicked
+      console.log(`You clicked on ${object.label} (${object.thing})`);
+      function catAction(thing, cat){
+        console.log(thing + ' clicked for ' + cat);
+        let catData = null;
+       if (cat === "pip") {
+        catData = pipData;
+       }
+       else if (cat === 'ivy') {
+        catData = ivyData;
+       }
+      catData.forEach( obj => {
+        if (obj.houseObject == thing) {
+          console.log(catData.array)
+        }
+
+      });
+
+      const radioButtons = Array.from(document.querySelectorAll('input[name="objectsRadioButtons"]'));
+
+      radioButtons.forEach( button => {
+        button.addEventListener('change', function() {
+          catAction(this.value, catName);
+        });
+      });
+      buildGame(catData.array);
+      }
+      
+
+    });
+
+
+
 
 buildGame(startGameObjects);
 
 
-function displayArray(array) {
-  // Hide the radio buttons (should i do this?)
- // radioButtons.forEach(function(radioButton) {
- //   radioButton.style.display = 'none';
-//  });
   
-  // Create a div to display the array
-  const arrayDiv = document.createElement('div');
-  arrayDiv.innerHTML = array.join(', ');
-  gameboard.appendChild(arrayDiv);
- }
 
 // Add event listener to all radio buttons
-const radioButtons = Array.from(document.querySelectorAll('input[name="objectsRadioButtons"]'));
-
-radioButtons.forEach( button => {
-  button.addEventListener('change', function() {
-    catAction(this.value, catName);
-  });
-});
-
-
-function catAction(thing, cat){
-  console.log(thing + ' clicked for ' + cat);
-  let catData = null;
- if (cat === "pip") {
-  catData = pipData;
- }
- else if (cat === 'ivy') {
-  catData = ivyData;
- }
-catData.forEach( obj => {
-  if (obj.houseObject == thing) {
-    console.log(catData.array);
-   
-    buildGame(catData.array);
-
-  }
-
-});
 
 
 
-}
+
 
 
 
