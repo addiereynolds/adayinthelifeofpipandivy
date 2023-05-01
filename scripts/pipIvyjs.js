@@ -61,6 +61,7 @@ function buildGame(objects) {
     containerDiv.appendChild(objectChoice); 
     let label = document.createElement("label");
 
+  
 
     if (object.thing) {
       //containerDiv.setAttribute('class', object.thing );
@@ -78,15 +79,9 @@ function buildGame(objects) {
       }
       gameboard.appendChild(containerDiv);
       containerDiv.appendChild(objectChoice); 
-      gameboard.appendChild(label);
-    });
-  }
-
-
-
-
-
+      //gameboard.appendChild(label);
     
+ 
     //label.setAttribute("for", object.thing)
     //label.innerHTML = object.label;
 
@@ -125,11 +120,15 @@ function buildGame(objects) {
       
 
     });
+   
+
+  });
+    
+}
+
+  buildGame(startGameObjects);
 
 
-
-
-buildGame(startGameObjects);
 
 
   
