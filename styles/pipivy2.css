@@ -22,10 +22,6 @@ html {
   header strong {
     font-size: 30px;
     text-transform: uppercase;
-    background-color: #D1F3C8;
-    border: 2px #167544;
-    border-style: double;
-    border-radius: 30px;
     padding: .5rem;
   }
 
@@ -178,8 +174,21 @@ html {
   background-color: #D1F3C8;
   background-size: contain;
   background-position: center center;
+
 } 
 
+#gameboard .objectInteractions label{
+  background-color: #C3F7E7;
+  font-family: 'Alice', serif;
+  color: #FEBDC6;
+  font-size: 2rem;
+  padding: 2rem;
+  display: inline;
+  margin: 1rem;
+  border: solid 1rem;
+  
+
+}
 
 
  #gameboard label {
@@ -199,13 +208,18 @@ html {
   background-position: center center;
 } 
 
+
+
 #gameboard input[type=radio]:checked + label {
   background-color: none;
 }
 
+
+
 body {
    background-color: #FFE2E5;
 }
+
 
 
 .startGameObjects.items #gameboard {
@@ -214,12 +228,38 @@ body {
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 10px;
   justify-content: center;
+
 }
 
 
-.startGameObjects.title {
-  display: block;
+
+
+#editTitle {
+  display: absolute;
+  font-family: 'Berkshire Swash', cursive;
+  font-weight: bold;
+  font-size: 30px;
+  background-color: #FDF9B4;
+  padding: 1rem;
+  border: 2px solid #F9C374;
+  border-radius: 1rem;
+  color: #F9C374;
+  margin: auto;
+  width: 30rem;
+  position: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  
 }
+
+
+
+
+
+
+
+
 
 
 .couch {
