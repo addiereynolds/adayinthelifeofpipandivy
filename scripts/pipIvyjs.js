@@ -28,8 +28,10 @@ let ivyData = [
     {houseObject: 'litter box', label: 'litter box', array: ['poop', 'drag poop everywhere', 'dig around'] },
     {houseObject: 'plants', label: 'plants', array: ['sniff', 'knock over', 'climb'] }
   ];
-const startGameObjects = 
-[ { thing: 'couch', label: 'couch' },
+const startGameObjects = {
+  title: "Which object would you like to play with?",
+  items: [
+ { thing: 'couch', label: 'couch' },
   { thing: 'bed', label: 'bed' },
   { thing: 'counter', label: 'counter' },
   { thing: 'window', label: 'window' },
@@ -40,7 +42,8 @@ const startGameObjects =
   { thing: 'bathroomDoor', label: 'bathroom door' },
   { thing: 'litterBox', label: 'litter box' },
   { thing: 'plants', label: 'plants' },
-];
+],
+};
 
 
 function buildGame(objects) {
@@ -91,9 +94,8 @@ function buildGame(objects) {
     // Add event listener to each radio button
     objectChoice.addEventListener('click', function() {
       // Do something when the radio button is clicked
-      console.log(`You clicked on ${object.label} (${object.thing})`);
+      console.log(`You clicked on  ${object.thing} for ` + catName);
       function catAction(thing, cat){
-        console.log(thing + ' clicked for ' + cat);
         let catData = null;
        if (cat === "pip") {
         catData = pipData;
@@ -126,7 +128,8 @@ function buildGame(objects) {
     
 }
 
-  buildGame(startGameObjects);
+  buildGame(startGameObjects.items);
+ 
 
 
 
