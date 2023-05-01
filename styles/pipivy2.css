@@ -208,12 +208,17 @@ body {
 }
 
 
-.startGameObjects #gameboard {
+.startGameObjects.items #gameboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 10px;
   justify-content: center;
+}
+
+
+.startGameObjects.title {
+  display: block;
 }
 
 
@@ -226,7 +231,22 @@ body {
   object-fit: cover;
   display: inline; */
 }
-
+.couch::after {
+  content: "couch"; 
+  text-align: relative;
+  background-color: #FDF9B4;
+    color: #167544; 
+  font-size: 16px; 
+  font-family: 'Alice', serif;
+  padding: .4rem;
+  border: solid #167544;
+  border-radius: 30px;
+  top: 20px;
+  float: left;
+  margin: 5px;
+  margin-right: -4rem;
+  margin-top: 17rem;
+}
 
   
   .bed {
@@ -236,6 +256,25 @@ body {
      background-position: center;
   }
 
+  .bed::after {
+    content: "bed"; 
+    text-align: relative;
+    background-color: #FDF9B4;
+    color: #167544; 
+    font-size: 16px; 
+    font-family: 'Alice', serif;
+    padding: .4rem;
+    border: solid #167544;
+    border-radius: 30px;
+    top: 20px;
+    float: left;
+    margin: 5px;
+    margin-right: -4rem;
+    margin-top: 17rem;
+  }
+
+
+
   .plants {
     background-image: url('../images/pipIvyplants.svg');
     background-size: contain;
@@ -243,11 +282,43 @@ body {
     background-position: center;
   }
 
+  .plants::after {
+    content: "plants"; 
+    text-align: relative;
+    background-color: #FDF9B4;
+    color: #167544; 
+    font-size: 16px; 
+    font-family: 'Alice', serif;
+    padding: .4rem;
+    border: solid #167544;
+    border-radius: 30px;
+    top: 20px;
+    float: left;
+    margin: 5px;
+    margin-right: -4rem;
+    margin-top: 17rem;
+  }
   .counter{
     background-image: url('../images/pipIvyCounter.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+  }
+  .counter::after {
+    content: "counter"; 
+    text-align: relative;
+    background-color: #FDF9B4;
+    color: #167544; 
+    font-size: 16px; 
+    font-family: 'Alice', serif;
+    padding: .4rem;
+    border: solid #167544;
+    border-radius: 30px;
+    top: 20px;
+    float: left;
+    margin: 5px;
+    margin-right: -4rem;
+    margin-top: 17rem;
   }
 
   .window{
@@ -255,6 +326,22 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+  }
+  .window::after {
+    content: "window"; 
+    text-align: relative;
+    background-color: #FDF9B4;
+    color: #167544;  
+    font-size: 16px; 
+    font-family: 'Alice', serif;
+    padding: .4rem;
+    border: solid #167544;
+    border-radius: 30px;
+    top: 20px;
+    float: left;
+    margin: 5px;
+    margin-right: -4.5rem;
+    margin-top: 17rem;
   }
 
   .waterBowl{
@@ -264,12 +351,47 @@ body {
     background-position: center;
   }
 
+  .waterBowl::after {
+    content: "water bowl"; 
+    text-align: relative;
+    background-color: #FDF9B4;
+    color: #167544; 
+    font-size: 16px; 
+    font-family: 'Alice', serif;
+    padding: .4rem;
+    border: solid #167544;
+    border-radius: 30px;
+    top: 20px;
+    float: left;
+    margin: 5px;
+    margin-right: -8rem;
+    margin-top: 17rem;
+  }
+
   .foodBowl{
     background-image: url('../images/foodbowl.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
   }
+
+  .foodBowl::after {
+    content: "food bowl"; 
+    text-align: relative;
+    background-color: #FDF9B4;
+    color: #167544; 
+    font-size: 16px; 
+    font-family: 'Alice', serif;
+    padding: .4rem;
+    border: solid #167544;
+    border-radius: 30px;
+    top: 20px;
+    float: left;
+    margin: 5px;
+    margin-right: -7rem;
+    margin-top: 17rem;
+  }
+
 
 
   .beanBag{
@@ -280,11 +402,45 @@ body {
     
   }
 
+  .beanBag::after {
+    content: "bean bag"; 
+    text-align: relative;
+    background-color: #FDF9B4;
+    color: #167544; 
+    font-size: 16px; 
+    font-family: 'Alice', serif;
+    padding: .4rem;
+    border: solid #167544;
+    border-radius: 30px;
+    top: 20px;
+    float: left;
+    margin: 5px;
+    margin-right: -5rem;
+    margin-top: 17rem;
+  }
+
   .litterBox{
     background-image: url('../images/litterbox1.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+  }
+
+  .litterBox::after {
+    content: "litter box"; 
+    text-align: relative;
+    background-color: #FDF9B4;
+    color: #167544; 
+    font-size: 16px; 
+    font-family: 'Alice', serif;
+    padding: .4rem;
+    border: solid #167544;
+    border-radius: 30px;
+    top: 20px;
+    float: left;
+    margin: 5px;
+    margin-right: -5rem;
+    margin-top: 17rem;
   }
 
   .closet{
@@ -294,12 +450,47 @@ body {
     background-position: center;
   }
 
+  .closet::after {
+    content: "closet"; 
+    text-align: relative;
+    background-color: #FDF9B4;
+    color: #167544; 
+    font-size: 16px; 
+    font-family: 'Alice', serif;
+    padding: .4rem;
+    border: solid #167544;
+    border-radius: 30px;
+    top: 20px;
+    float: left;
+    margin: 5px;
+    margin-right: -4rem;
+    margin-top: 17rem;
+  }
+
   .bathroomDoor{
     background-image: url('../images/bathroomdoor.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
   } 
+
+  .bathroomDoor::after {
+    content: "bathroom door"; 
+    text-align: relative;
+    background-color: #FDF9B4;
+    color: #167544; 
+    font-size: 16px; 
+    font: bolder;
+    font-family: 'Alice', serif;
+    padding: .4rem;
+    border: solid #167544;
+    border-radius: 30px;
+    top: 20px;
+    float: left;
+    margin: 5px;
+    margin-right: -8rem;
+    margin-top: 17rem;
+  }
 
   
 
