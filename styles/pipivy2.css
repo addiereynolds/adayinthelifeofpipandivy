@@ -178,16 +178,17 @@ html {
 } 
 
 #gameboard .objectInteractions label{
-  background-color: #C3F7E7;
+  background-color: #D1F3C8;
   font-family: 'Alice', serif;
-  color: #FEBDC6;
+  color: #167544;
   font-size: 2rem;
+  margin-top: 3rem;
   padding: 2rem;
-  display: inline;
   margin: 1rem;
   border: solid 1rem;
+  align-items: center;
+  letter-spacing: 2px;
   
-
 }
 
 
@@ -206,6 +207,7 @@ html {
   background-color: #D1F3C8;
   background-size: contain;
   background-position: center center;
+  padding: 1rem;
 } 
 
 
@@ -218,6 +220,28 @@ html {
 
 body {
    background-color: #FFE2E5;
+}
+
+.objectInteractions {
+  display: inline;
+  text-align: center;
+  justify-content: center;
+  position: center;
+  align-items: center;
+  display: center;
+  margin: 0;
+  
+  
+}
+
+.objectInteractions:hover {
+  transform: scale(1.1);
+}
+
+.objectInteractions input {
+  width: 2rem;
+  height: 2rem;
+  opacity:0;
 }
 
 
@@ -256,12 +280,6 @@ body {
 
 
 
-
-
-
-
-
-
 .couch {
   background-image: url('../images/pipivycouch.svg');
   background-size: contain;
@@ -288,6 +306,16 @@ body {
   margin-top: 17rem;
 }
 
+.couch input {
+  width: 10rem;
+  height: 20rem;
+  opacity:0;
+}
+
+.couch:hover{
+background-color: #FEBDC6;
+transform: scale(1.1);
+}
   
   .bed {
      background-image: url('../images/pipIvyBed.svg');
@@ -312,7 +340,18 @@ body {
     margin-right: -4rem;
     margin-top: 17rem;
   }
+  .bed input {
+    width: 10rem;
+    height: 20rem;
+    opacity:0;
+  }
 
+  .bed:hover{
+    background-color: #FEBDC6;
+    transform: scale(1.1);
+    }
+
+   
 
 
   .plants {
@@ -338,12 +377,26 @@ body {
     margin-right: -4rem;
     margin-top: 17rem;
   }
+
+  .plants input {
+    width: 10rem;
+    height: 20rem;
+    opacity:0;
+  }
+
+  .plants:hover{
+    background-color: #FEBDC6;
+    transform: scale(1.1);
+    }
+
   .counter{
     background-image: url('../images/pipIvyCounter.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
   }
+
+
   .counter::after {
     content: "counter"; 
     text-align: relative;
@@ -360,6 +413,17 @@ body {
     margin-right: -4rem;
     margin-top: 17rem;
   }
+
+  .counter input {
+    width: 10rem;
+    height: 20rem;
+    opacity:0;
+  }
+
+  .counter:hover{
+    background-color: #FEBDC6;
+    transform: scale(1.1);
+    }
 
   .window{
     background-image: url('../images/windowpipivy.svg');
@@ -384,6 +448,17 @@ body {
     margin-top: 17rem;
   }
 
+  .window input {
+    width: 10rem;
+    height: 20rem;
+    opacity:0;
+  }
+
+  .window:hover{
+    background-color: #FEBDC6;
+    transform: scale(1.1);
+    }
+
   .waterBowl{
     background-image: url('../images/waterbowl.svg');
     background-size: contain;
@@ -407,6 +482,17 @@ body {
     margin-right: -8rem;
     margin-top: 17rem;
   }
+
+  .waterBowl input {
+    width: 10rem;
+    height: 20rem;
+    opacity:0;
+  }
+
+  .waterBowl:hover{
+    background-color: #FEBDC6;
+    transform: scale(1.1);
+    }
 
   .foodBowl{
     background-image: url('../images/foodbowl.svg');
@@ -433,6 +519,17 @@ body {
   }
 
 
+  .foodBowl input {
+    width: 10rem;
+    height: 20rem;
+    opacity:0;
+  }
+
+  .foodBowl:hover{
+    background-color: #FEBDC6;
+    transform: scale(1.1);
+    }
+
 
   .beanBag{
     background-image: url('../images/beanBag.svg');
@@ -441,6 +538,7 @@ body {
     background-position: center;
     
   }
+
 
   .beanBag::after {
     content: "bean bag"; 
@@ -459,6 +557,15 @@ body {
     margin-top: 17rem;
   }
 
+  .beanBag input {
+    width: 10rem;
+    height: 20rem;
+    opacity:0;
+  }
+.beanBag:hover{
+background-color: #FEBDC6;
+transform: scale(1.1);
+}
   .litterBox{
     background-image: url('../images/litterbox1.svg');
     background-size: contain;
@@ -483,11 +590,28 @@ body {
     margin-top: 17rem;
   }
 
+  .litterBox input {
+    width: 10rem;
+    height: 20rem;
+    opacity:0;
+  }
+
+  .litterBox:hover{
+    background-color: #FEBDC6;
+    transform: scale(1.1);
+    }
+
   .closet{
     background-image: url('../images/closet.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+  }
+
+  .closet input {
+    width: 10rem;
+    height: 20rem;
+    opacity:0;
   }
 
   .closet::after {
@@ -506,6 +630,11 @@ body {
     margin-right: -4rem;
     margin-top: 17rem;
   }
+
+  .closet:hover{
+    background-color: #FEBDC6;
+    transform: scale(1.1);
+    }
 
   .bathroomDoor{
     background-image: url('../images/bathroomdoor.svg');
@@ -531,7 +660,15 @@ body {
     margin-right: -8rem;
     margin-top: 17rem;
   }
-
+  .bathroomDoor input {
+    width: 10rem;
+    height: 20rem;
+    opacity:0;
+  }
   
-
+  .bathroomDoor:hover{
+    background-color: #FEBDC6;
+    transform: scale(1.1);
+    
+    }
   
