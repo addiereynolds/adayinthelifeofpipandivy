@@ -51,6 +51,7 @@ titleId: "editTitle"
 function buildGame(objects) {
   gameboard.innerHTML ='';
   const nextBtn = document.createElement('button');
+  nextBtn.classList.add('anotherNext');
   let title = document.createElement("h2");
   title.innerHTML = startGameObjects.title;
   title.setAttribute("id", startGameObjects.titleId); 
@@ -122,23 +123,26 @@ function removeSelectedObject(selectedObject) {
 buildGame(startGameObjects.items);
 
 function buildThirdQuestion(){
+  
 
   let selectedObject = document.querySelector('input[name="objectsRadioButtons"]:checked').thing;
   removeSelectedObject(selectedObject);
 
   const nextBtn = document.createElement('button');
+  nextBtn.classList.add('anotherNext');
   let catData = catName === 'pip' ? pipData : ivyData;
   const secondQuestionChoices = document.querySelectorAll('input[type=radio]');
   secondQuestionChoices.forEach( choice => {
+    
     if (choice.checked) {
+      
       catData.forEach( item => {
+        
         if (choice.value == item.houseObject) {
+          
           console.log(item.array);
           gameboard.innerHTML = '';
           item.array.forEach( catAction => {
-
-
-
             // put your loop to create elements and attach them to the document here.
             let containZeDiv = document.createElement('div');
             containZeDiv.classList.add('objectInteractions'); 
@@ -170,6 +174,7 @@ function buildThirdQuestion(){
       nextBtn.addEventListener('click', function() {
 
         const selectedRadio = document.querySelector('input[name="objectsRadioButtons"]:checked');
+      
         if (selectedRadio) {
           selectedObject = selectedRadio.thing;
            if (object.classList.contains('startGameObject')) {
@@ -180,6 +185,7 @@ function buildThirdQuestion(){
     if (objectSelectionCounter === startGameObjects.length) {
       const finishedMessage = document.createElement('div');
       finishedMessage.textContent = 'Game Over!';
+      catAction.style.display = none;
     }
   }
           // you can also store selectedObject in local storage here

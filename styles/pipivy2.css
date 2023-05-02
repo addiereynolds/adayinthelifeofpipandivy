@@ -37,7 +37,19 @@ html {
     margin-top: 20px;
   }
 
+.playChoice {
+  font-family: 'Berkshire Swash', cursive;
+  color: #167544;
+  border: none;
+  font-weight: bold;
+  font-size: 30px;
+  background-color: #FDF9B4;
+  padding: 1rem;
+  border: 2px solid #F9C374;
+  border-radius: 1rem;
+  color: #F9C374;
 
+}
 
   #catChoice img {
   display: flex;
@@ -143,10 +155,10 @@ html {
   } */
 
   a[href="gameStart.html"] {
-  display: flex;
+  display: inline-block;
   background-color: #167544;
   border-color: #D1F3C8;
-  color: white;
+  color: #FDF9B4;
   padding: 10px 20px;
   border-radius: 5px;
   width: 60px;
@@ -154,8 +166,10 @@ html {
   margin-top: 20px;
   letter-spacing: 2px;
   text-align: center;
-  position: static;
-  margin:2rem auto;
+  margin: 1rem;
+  margin-right: 4rem;
+  text-decoration: none;
+  font-family: 'Berkshire Swash', cursive;
 
 } 
 
@@ -174,25 +188,68 @@ html {
   background-color: #D1F3C8;
   background-size: contain;
   background-position: center center;
-
 } 
+
+.houseStuff:active {
+  transform: scale(1.1);
+  cursor: pointer;
+}
 
 #gameboard .objectInteractions label{
   background-color: #D1F3C8;
   font-family: 'Alice', serif;
   color: #167544;
-  font-size: 2rem;
+  font-size: 1rem;
   margin-top: 3rem;
   padding: 2rem;
   margin: 1rem;
   border: solid 1rem;
-  align-items: center;
+  align-items: contain;
   letter-spacing: 2px;
-  
+  display: inline-table;
+  width: 20rem;
+  height: 4rem;
+  cursor: pointer;
 }
 
 
- #gameboard label {
+#gameboard .objectInteractions label:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+  color: palevioletred;
+}
+#gameboard .objectInteractions:checked {
+  transform: scale(1.2);
+  cursor: pointer;
+  color: palevioletred;
+}
+
+.anotherNext {
+  background-color: #F9C374;
+  color: palevioletred;
+  display: inline;
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 6rem;
+  height: 4rem;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 1rem;
+  margin-right: 4rem;
+  text-decoration: none;
+  font-family: 'Berkshire Swash', cursive;
+  margin-top: 30px;
+}
+
+.anotherNext:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+
+}
+
+
+#gameboard label {
   margin-top: 1rem;
   border: 2px solid #ccc;
   border-radius: 5px;
@@ -234,9 +291,16 @@ body {
   
 }
 
-.objectInteractions:hover {
+.objectInteractions input:hover {
   transform: scale(1.1);
 }
+
+#gameboard .objectInteractions input:checked {
+    background-color: #FEBDC6;
+    transform: scale(1.1);
+    
+}
+
 
 .objectInteractions input {
   width: 2rem;
@@ -316,6 +380,8 @@ body {
 background-color: #FEBDC6;
 transform: scale(1.1);
 }
+
+
   
   .bed {
      background-image: url('../images/pipIvyBed.svg');
@@ -492,6 +558,7 @@ transform: scale(1.1);
   .waterBowl:hover{
     background-color: #FEBDC6;
     transform: scale(1.1);
+    cursor: pointer;
     }
 
   .foodBowl{
@@ -528,6 +595,7 @@ transform: scale(1.1);
   .foodBowl:hover{
     background-color: #FEBDC6;
     transform: scale(1.1);
+    cursor: pointer;
     }
 
 
@@ -565,6 +633,7 @@ transform: scale(1.1);
 .beanBag:hover{
 background-color: #FEBDC6;
 transform: scale(1.1);
+cursor: pointer;
 }
   .litterBox{
     background-image: url('../images/litterbox1.svg');
@@ -599,6 +668,7 @@ transform: scale(1.1);
   .litterBox:hover{
     background-color: #FEBDC6;
     transform: scale(1.1);
+    cursor: pointer;
     }
 
   .closet{
@@ -634,6 +704,7 @@ transform: scale(1.1);
   .closet:hover{
     background-color: #FEBDC6;
     transform: scale(1.1);
+    cursor: pointer;
     }
 
   .bathroomDoor{
@@ -669,6 +740,7 @@ transform: scale(1.1);
   .bathroomDoor:hover{
     background-color: #FEBDC6;
     transform: scale(1.1);
+    
     
     }
   
