@@ -16,9 +16,24 @@ html {
     header {
       font-size: 30px;
       padding: 5px 10px;
+      margin-bottom: 1rem;
     }
 
   }
+
+  #gameTitle {
+    font-size: .8rem; 
+    position: absolute;
+    top: 10px; 
+    left: 2rem; 
+    padding-bottom: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  #gameTitle strong {
+    font-size: 2rem; 
+  }
+  
   header strong {
     font-size: 30px;
     text-transform: uppercase;
@@ -48,8 +63,10 @@ html {
   border: 2px solid #F9C374;
   border-radius: 1rem;
   color: #F9C374;
+  margin-top: 1rem;
 
 }
+
 
   #catChoice img {
   display: flex;
@@ -104,6 +121,11 @@ html {
   border: 2px solid #F9C374;
   border-radius: 1rem;
   color: #F9C374;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+    width: 80%;
+    margin-top: 2rem;
+  }
 }
 
 #catChoice-items {
@@ -200,16 +222,30 @@ html {
   font-family: 'Alice', serif;
   color: #167544;
   font-size: 1rem;
-  margin-top: 3rem;
+  margin-top: 5rem;
   padding: 2rem;
   margin: 1rem;
   border: solid 1rem;
-  align-items: contain;
+  align-items: center;
   letter-spacing: 2px;
-  display: inline-table;
+  display: inline-block;
   width: 20rem;
   height: 4rem;
   cursor: pointer;
+  left: 40%;
+
+}
+@media only screen and (max-width: 600px) {
+  #gameboard .objectInteractions label {
+    font-size: 0.6rem;
+    padding: 2rem;
+    margin: .1rem;
+    border: solid 0.3rem;
+    height: 2rem;
+    width: fit-content;
+    display: block;
+    
+  }
 }
 
 
@@ -224,11 +260,13 @@ html {
   color: palevioletred;
 }
 
+
+
 .anotherNext {
   background-color: #F9C374;
   color: palevioletred;
-  display: inline;
-  position: relative;
+  display: inline-block;
+  position: fixed;
   padding: 10px 20px;
   border-radius: 5px;
   width: 6rem;
@@ -240,6 +278,22 @@ html {
   text-decoration: none;
   font-family: 'Berkshire Swash', cursive;
   margin-top: 30px;
+  bottom: 0;
+  left: 85%;
+
+}
+
+@media (max-width: 768px) {
+  .anotherNext {
+    width: 6rem;
+    height: 3rem;
+    margin-right: 2rem;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    left: 70%;
+    display: block;
+    margin-top: 2rem;
+  }
 }
 
 .anotherNext:hover {
@@ -265,6 +319,8 @@ html {
   background-size: contain;
   background-position: center center;
   padding: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 } 
 
 
@@ -280,14 +336,14 @@ body {
 }
 
 .objectInteractions {
-  display: inline;
+  display: inline-block;
   text-align: center;
   justify-content: center;
   position: center;
   align-items: center;
   display: center;
-  margin: 0;
-  
+  margin: .5rem;
+
   
 }
 
@@ -306,6 +362,8 @@ body {
   width: 2rem;
   height: 2rem;
   opacity:0;
+  margin-top: 1rem;
+  left: 50%;
 }
 
 
@@ -319,11 +377,8 @@ body {
 
 }
 
-
-
-
-#editTitle {
-  display: absolute;
+#pipTitle {
+  display: block;
   font-family: 'Berkshire Swash', cursive;
   font-weight: bold;
   font-size: 30px;
@@ -336,9 +391,63 @@ body {
   width: 30rem;
   position: center;
   align-items: center;
-  left: 0;
+  left: 50%;
   right: 0;
-  
+  margin-top: 4rem;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+    width: 80%;
+    margin-top: 2rem;
+  }
+}
+
+#ivyTitle {
+  display: block;
+  font-family: 'Berkshire Swash', cursive;
+  font-weight: bold;
+  font-size: 30px;
+  background-color: #FDF9B4;
+  padding: 1rem;
+  border: 2px solid #F9C374;
+  border-radius: 1rem;
+  color: #F9C374;
+  margin: auto;
+  width: 30rem;
+  position: center;
+  align-items: center;
+  left: 50%;
+  right: 0;
+  margin-top: 4rem;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+    width: 80%;
+    margin-top: 2rem;
+  }
+}
+
+
+#editTitle {
+  display: block;
+  font-family: 'Berkshire Swash', cursive;
+  font-weight: bold;
+  font-size: 30px;
+  background-color: #FDF9B4;
+  padding: 1rem;
+  border: 2px solid #F9C374;
+  border-radius: 1rem;
+  color: #F9C374;
+  margin: auto;
+  width: 30rem;
+  position: center;
+  align-items: center;
+  left: 50%;
+  right: 0;
+  margin-top: 4rem;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+    width: 80%;
+    margin-top: 2rem;
+  }
 }
 
 

@@ -3,7 +3,9 @@ const catName = localStorage.getItem('catChoice');
 let catObjects = [];
 let objectSelectionCounter = 0;
 let selectedObject = null;
-let pipData = [
+let pipData = {
+  title: "How would you like to play with this object?", 
+  items:[
     { houseObject: 'couch', label: 'couch', array: ['loaf', 'scratch', 'hide underneath', 'get scared of'] },
     { houseObject: 'bed', label: 'bed', array: ['loaf', 'hide underneath', 'meow at Ivy'] }, 
     { houseObject: 'counter', label: 'counter', array: ['loaf', 'jump to window'] },
@@ -14,10 +16,13 @@ let pipData = [
     {houseObject: 'closet', label: 'closet', array: ['get fur on clothes', 'loaf on purses', 'play with the belts'] },
     {houseObject: 'bathroomDoor', label: 'bathroom door', array: ['meow at door', 'break in and steal tampons', 'break in and drink from toilet', 'break in and play in tub'] },
     {houseObject: 'litterBox', label: 'litter box', array: ['poop', 'sleep in', 'hide from ivy'] },
-    {houseObject: 'plants', label: 'plants', array: ['chew and throw up', 'circle with suspicion', 'get scared of'] }
-  ];
-
-let ivyData = [
+    {houseObject: 'plants', label: 'plants', array: ['chew and throw up', 'circle with suspicion', 'get scared of'] },
+  ],
+  titleId: "pipTitle" 
+};
+let ivyData = {
+  title: "How would you like to play with this object?",
+ items: [
     {houseObject: 'couch', label: 'couch', array:  ['loaf', 'scratch', 'make biscuits', 'meow at aimlessly'] },
     {houseObject: 'bed', label: 'bed', array: ['loaf', 'mess up blankets', 'cuddle with Pip'] },
     {houseObject: 'counter', label: 'counter', array: ['knock over cups', 'play with stove'] },
@@ -28,8 +33,11 @@ let ivyData = [
     {houseObject: 'closet', label: 'closet', array: ['mess up clothes', 'plan world domination', 'play with the belts'] },
     {houseObject: 'bathroomDoor', label: 'bathroom door', array: ['scratch', 'break in and lick sink', 'break in and play with hanging towels'] },
     {houseObject: 'litterBox', label: 'litter box', array: ['poop', 'drag poop everywhere', 'dig around'] },
-    {houseObject: 'plants', label: 'plants', array: ['sniff', 'knock over', 'climb'] }
-  ];
+    {houseObject: 'plants', label: 'plants', array: ['sniff', 'knock over', 'climb'] },
+  ],
+  titleId: "ivyTitle" 
+};
+
 const startGameObjects = {
   title: "Which object would you like to play with?",
   items: [
@@ -52,10 +60,13 @@ function buildGame(objects) {
   gameboard.innerHTML ='';
   const nextBtn = document.createElement('button');
   nextBtn.classList.add('anotherNext');
-  let title = document.createElement("h2");
-  title.innerHTML = startGameObjects.title;
-  title.setAttribute("id", startGameObjects.titleId); 
-  gameboard.appendChild(title);
+  let title = document.getElementById(startGameObjects.titleId);
+  if (!title) {
+    title = document.createElement("h2");
+    title.innerHTML = startGameObjects.title;
+    title.setAttribute("id", startGameObjects.titleId); 
+    gameboard.appendChild(title);
+  }
   objects.forEach(function(object) {
     if (object.thing === selectedObject) {
       const index = objects.indexOf(object);
@@ -125,12 +136,14 @@ buildGame(startGameObjects.items);
 function buildThirdQuestion(){
   
 
-  let selectedObject = document.querySelector('input[name="objectsRadioButtons"]:checked').thing;
+  let selectedObject = document.querySelector('input[name="objectsRadioButtons"]:checked');
   removeSelectedObject(selectedObject);
 
   const nextBtn = document.createElement('button');
   nextBtn.classList.add('anotherNext');
-  let catData = catName === 'pip' ? pipData : ivyData;
+  let pipTitle = document.createElement("h2");
+ 
+  let catData = catName === 'pip' ? pipData.items : ivyData.items;
   const secondQuestionChoices = document.querySelectorAll('input[type=radio]');
   secondQuestionChoices.forEach( choice => {
     
@@ -143,6 +156,20 @@ function buildThirdQuestion(){
           console.log(item.array);
           gameboard.innerHTML = '';
           item.array.forEach( catAction => {
+            let pipTitle = document.getElementById(pipData.titleId);
+            if (!pipTitle) {
+              pipTitle = document.createElement("h2");
+              pipTitle.innerHTML = pipData.title;
+              pipTitle.setAttribute("id", pipData.titleId); 
+              gameboard.appendChild(pipTitle);
+            }
+            let ivyTitle = document.getElementById(ivyData.titleId);
+            if (!pipTitle) {
+              ivyTitle = document.createElement("h2");
+              ivyTitle.innerHTML = ivyData.title;
+              ivyTitle.setAttribute("id", ivyData.titleId); 
+              gameboard.appendChild(ivyTitle);
+            }
             // put your loop to create elements and attach them to the document here.
             let containZeDiv = document.createElement('div');
             containZeDiv.classList.add('objectInteractions'); 
@@ -205,19 +232,25 @@ function returnToObjects(){
    var ivyScore = 0;
 
 
-   function checkForWin(pipData, ivyData) {
+   function checkForWin(buildGame, objectInteraction) {
      const pipWinningPath = ['loaf', 'hide underneath', 'loaf', 'jump on sill and miss then give up', 'have a little drink', 'throw up food', 'check on hidden hair elastics', 'get fur on clothes', 'break in and steal tampons', 'hide from ivy', 'chew and throw up'];
      const ivyWinningPath = ['scratch', 'tear at quilt', 'knock over cups', 'watch birds', 'have a little drink', 'snack', 'make biscuits', 'plan world domination', 'break in and lick sink', 'poop', 'climb'];
    
     
    
-     if (pipData.array === pipWinningPath) {
-       return pipScore + 100;
-     }
-     if (ivyData.toString() === ivyWinningPath.toString()) {
-       return ivyScore + 100;
-     }
-     return randomNum;
+     for (let i = 0; i < pipWinningPath.length; i++) {
+      if (pipWinningPath.includes(objectInteraction)) {
+        return pipScore + 100;
+      }
+    }
+  
+    for (let i = 0; i < ivyWinningPath.length; i++) {
+      if (ivyWinningPath.includes(objectInteractions)) {
+        return ivyScore + 100;
+      }
+    }
+  
+    return randomNum;
      
    }
    
