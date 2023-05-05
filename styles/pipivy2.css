@@ -212,7 +212,7 @@ html {
   background-position: center center;
 } 
 
-.houseStuff:active {
+#gameboard .houseStuff input:checked {
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -254,7 +254,14 @@ html {
   cursor: pointer;
   color: palevioletred;
 }
-#gameboard .objectInteractions:checked {
+
+#gameboard .objectInteractions input:active {
+  transform: scale(1.2);
+  cursor: pointer;
+  color: palevioletred;
+}
+
+#gameboard .objectInteractions input:checked {
   transform: scale(1.2);
   cursor: pointer;
   color: palevioletred;
@@ -349,11 +356,13 @@ body {
 
 .objectInteractions input:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
-#gameboard .objectInteractions input:checked {
+#gameboard .objectInteractions input:active {
     background-color: #FEBDC6;
     transform: scale(1.1);
+    cursor: pointer;
     
 }
 
@@ -477,17 +486,20 @@ body {
   margin: 5px;
   margin-right: -4rem;
   margin-top: 17rem;
+  
 }
 
 .couch input {
   width: 10rem;
   height: 20rem;
   opacity:0;
+  cursor: pointer;
 }
 
 .couch:hover{
 background-color: #FEBDC6;
 transform: scale(1.1);
+cursor: pointer;
 }
 
 
@@ -497,6 +509,7 @@ transform: scale(1.1);
      background-size: contain;
      background-repeat: no-repeat;
      background-position: center;
+     cursor: pointer;
   }
 
   .bed::after {
@@ -519,11 +532,13 @@ transform: scale(1.1);
     width: 10rem;
     height: 20rem;
     opacity:0;
+    cursor: pointer;
   }
 
   .bed:hover{
     background-color: #FEBDC6;
     transform: scale(1.1);
+    cursor: pointer;
     }
 
    
@@ -557,11 +572,13 @@ transform: scale(1.1);
     width: 10rem;
     height: 20rem;
     opacity:0;
+    cursor: pointer;
   }
 
   .plants:hover{
     background-color: #FEBDC6;
     transform: scale(1.1);
+    cursor: pointer;
     }
 
   .counter{
@@ -569,6 +586,7 @@ transform: scale(1.1);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: pointer;
   }
 
 
@@ -593,11 +611,13 @@ transform: scale(1.1);
     width: 10rem;
     height: 20rem;
     opacity:0;
+    cursor: pointer;
   }
 
   .counter:hover{
     background-color: #FEBDC6;
     transform: scale(1.1);
+    cursor: pointer;
     }
 
   .window{
@@ -605,6 +625,7 @@ transform: scale(1.1);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: pointer;
   }
   .window::after {
     content: "window"; 
@@ -627,11 +648,13 @@ transform: scale(1.1);
     width: 10rem;
     height: 20rem;
     opacity:0;
+    cursor: pointer;
   }
 
   .window:hover{
     background-color: #FEBDC6;
     transform: scale(1.1);
+    cursor: pointer;
     }
 
   .waterBowl{
@@ -656,13 +679,24 @@ transform: scale(1.1);
     margin: 5px;
     margin-right: -8rem;
     margin-top: 17rem;
+    
   }
+
+
 
   .waterBowl input {
     width: 10rem;
     height: 20rem;
     opacity:0;
+    cursor: pointer;
   }
+
+  .waterBowl input:active{
+    background-color: #FEBDC6;
+    transform: scale(1.1);
+    cursor: pointer;
+    }
+
 
   .waterBowl:hover{
     background-color: #FEBDC6;
@@ -675,6 +709,7 @@ transform: scale(1.1);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: pointer;
   }
 
   .foodBowl::after {
@@ -694,11 +729,16 @@ transform: scale(1.1);
     margin-top: 17rem;
   }
 
-
+  .foodBowl:active::after {
+    background-color: #FEBDC6;
+    transform: scale(1.1);
+    cursor: pointer;
+  }
   .foodBowl input {
     width: 10rem;
     height: 20rem;
     opacity:0;
+    cursor: pointer;
   }
 
   .foodBowl:hover{
@@ -713,6 +753,7 @@ transform: scale(1.1);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: pointer;
     
   }
 
@@ -738,6 +779,7 @@ transform: scale(1.1);
     width: 10rem;
     height: 20rem;
     opacity:0;
+    cursor: pointer;
   }
 .beanBag:hover{
 background-color: #FEBDC6;
@@ -749,6 +791,7 @@ cursor: pointer;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: pointer;
   }
 
   .litterBox::after {
@@ -772,12 +815,14 @@ cursor: pointer;
     width: 10rem;
     height: 20rem;
     opacity:0;
+    cursor: pointer;
   }
 
   .litterBox:hover{
     background-color: #FEBDC6;
     transform: scale(1.1);
     cursor: pointer;
+    
     }
 
   .closet{
@@ -785,12 +830,14 @@ cursor: pointer;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: pointer;
   }
 
   .closet input {
     width: 10rem;
     height: 20rem;
     opacity:0;
+    cursor: pointer;
   }
 
   .closet::after {
@@ -814,6 +861,7 @@ cursor: pointer;
     background-color: #FEBDC6;
     transform: scale(1.1);
     cursor: pointer;
+    cursor: pointer;
     }
 
   .bathroomDoor{
@@ -821,6 +869,7 @@ cursor: pointer;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: pointer;
   } 
 
   .bathroomDoor::after {
@@ -839,16 +888,21 @@ cursor: pointer;
     margin: 5px;
     margin-right: -8rem;
     margin-top: 17rem;
+    
   }
   .bathroomDoor input {
     width: 10rem;
     height: 20rem;
     opacity:0;
+    cursor: pointer;
+    background-color: #FEBDC6;
+    transform: scale(1.1);
   }
   
   .bathroomDoor:hover{
     background-color: #FEBDC6;
     transform: scale(1.1);
+    cursor: pointer;
     
     
     }

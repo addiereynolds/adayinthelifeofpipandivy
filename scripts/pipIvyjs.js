@@ -6,10 +6,10 @@ let selectedObject = null;
 let pipData = {
   title: "How would you like to play with this object?", 
   items:[
-    { houseObject: 'couch', label: 'couch', array: ['loaf', 'scratch', 'hide underneath', 'get scared of'] },
-    { houseObject: 'bed', label: 'bed', array: ['loaf', 'hide underneath', 'meow at Ivy'] }, 
-    { houseObject: 'counter', label: 'counter', array: ['loaf', 'jump to window'] },
-    { houseObject: 'window', label: 'window', array: ['watch birds', 'jump on sill and miss then give up'] },
+    {houseObject: 'couch', label: 'couch', array: ['loaf', 'scratch', 'hide underneath', 'get scared of'] },
+    {houseObject: 'bed', label: 'bed', array: ['loaf', 'hide underneath', 'meow at Ivy'] }, 
+    {houseObject: 'counter', label: 'counter', array: ['loaf', 'jump to window'] },
+    {houseObject: 'window', label: 'window', array: ['watch birds', 'jump on sill and miss then give up'] },
     {houseObject: 'waterBowl', label: 'water bowl', array: ['have a little drink', 'get wet'] },
     {houseObject: 'foodBowl', label: 'food bowl', array: ['snack', 'throw up food'] },
     {houseObject: 'beanBag', label: 'bean bag', array:['loaf', 'check on hidden hair elastics'] },
@@ -41,7 +41,7 @@ let ivyData = {
 const startGameObjects = {
   title: "Which object would you like to play with?",
   items: [
- { thing: 'couch', label: 'couch' },
+  { thing: 'couch', label: 'couch' },
   { thing: 'bed', label: 'bed' },
   { thing: 'counter', label: 'counter' },
   { thing: 'window', label: 'window' },
@@ -57,18 +57,23 @@ titleId: "editTitle"
 };
 
 function buildGame(objects) {
+  
   gameboard.innerHTML ='';
   const nextBtn = document.createElement('button');
   nextBtn.classList.add('anotherNext');
-  let title = document.getElementById(startGameObjects.titleId);
+  let title = document.getElementById(objects.titleId);
   if (!title) {
     title = document.createElement("h2");
     title.innerHTML = startGameObjects.title;
     title.setAttribute("id", startGameObjects.titleId); 
     gameboard.appendChild(title);
   }
+  
+
+
   objects.forEach(function(object) {
-    if (object.thing === selectedObject) {
+    if (objects === selectedObject) {
+      console.log('Selected object found!');
       const index = objects.indexOf(object);
       if (index > -1) {
         objects.splice(index, 1);
@@ -124,20 +129,25 @@ function buildGame(objects) {
 
 }
 
+
+
 function removeSelectedObject(selectedObject) {
+  
+  
   startGameObjects.items = startGameObjects.items.filter(item => item.thing !== selectedObject);
  
   
 }
 
 
+
 buildGame(startGameObjects.items);
 
 function buildThirdQuestion(){
-  
 
   let selectedObject = document.querySelector('input[name="objectsRadioButtons"]:checked');
   removeSelectedObject(selectedObject);
+  
 
   const nextBtn = document.createElement('button');
   nextBtn.classList.add('anotherNext');
@@ -174,8 +184,8 @@ function buildThirdQuestion(){
             let containZeDiv = document.createElement('div');
             containZeDiv.classList.add('objectInteractions'); 
             let label = document.createElement("label");
-          label.classList.add("labelClass");
-        label.innerHTML = catAction;
+            label.classList.add("labelClass");
+            label.innerHTML = catAction;
             let interactionChoice = document.createElement("input");
             interactionChoice.type = "radio";
             interactionChoice.name = "interactionsRadioButtons";
@@ -197,6 +207,7 @@ function buildThirdQuestion(){
       nextBtn.textContent = 'Next'; 
       nextBtn.addEventListener('click', checkForWin);
       nextBtn.addEventListener('click', returnToObjects);
+      nextBtn.addEventListener('click', removeSelectedObject)
       gameboard.appendChild(nextBtn);
       nextBtn.addEventListener('click', function() {
 
@@ -209,7 +220,7 @@ function buildThirdQuestion(){
     objectSelectionCounter++;
     
     // Check if all startGameObjects have been selected
-    if (objectSelectionCounter === startGameObjects.length) {
+    if (objectSelectionCounter === object.length) {
       const finishedMessage = document.createElement('div');
       finishedMessage.textContent = 'Game Over!';
       catAction.style.display = none;
@@ -223,6 +234,7 @@ function buildThirdQuestion(){
 function returnToObjects(){
     
      buildGame(startGameObjects.items);
+     removeSelectedObject(startGameObjects);
      console.log(ivyScore);
       console.log(pipScore);
    }
@@ -232,28 +244,23 @@ function returnToObjects(){
    var ivyScore = 0;
 
 
-   function checkForWin(buildGame, objectInteraction) {
-     const pipWinningPath = ['loaf', 'hide underneath', 'loaf', 'jump on sill and miss then give up', 'have a little drink', 'throw up food', 'check on hidden hair elastics', 'get fur on clothes', 'break in and steal tampons', 'hide from ivy', 'chew and throw up'];
-     const ivyWinningPath = ['scratch', 'tear at quilt', 'knock over cups', 'watch birds', 'have a little drink', 'snack', 'make biscuits', 'plan world domination', 'break in and lick sink', 'poop', 'climb'];
-   
-    
-   
-     for (let i = 0; i < pipWinningPath.length; i++) {
-      if (pipWinningPath.includes(objectInteraction)) {
-        return pipScore + 100;
-      }
-    }
+   function checkForWin(interactionChoice) {
+    const pipWinningPath = ['loaf', 'hide underneath', 'loaf', 'jump on sill and miss then give up', 'have a little drink', 'throw up food', 'check on hidden hair elastics', 'get fur on clothes', 'break in and steal tampons', 'hide from ivy', 'chew and throw up'];
+    const ivyWinningPath = ['scratch', 'tear at quilt', 'knock over cups', 'watch birds', 'have a little drink', 'snack', 'make biscuits', 'plan world domination', 'break in and lick sink', 'poop', 'climb'];
   
-    for (let i = 0; i < ivyWinningPath.length; i++) {
-      if (ivyWinningPath.includes(objectInteractions)) {
-        return ivyScore + 100;
-      }
-    }
+   
   
-    return randomNum;
-     
+    if (pipWinningPath.includes(interactionChoice)) {
+     return pipScore + 100;
    }
-   
+ 
+   if (ivyWinningPath.includes(interactionChoice)) {
+     return ivyScore + 100;
+   }
+ 
+   return randomNum; 
+ }
+
    
  
 
